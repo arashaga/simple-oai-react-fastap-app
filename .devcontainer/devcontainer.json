@@ -1,0 +1,34 @@
+{
+    "name": "Sample Chat App",
+    "image": "mcr.microsoft.com/devcontainers/python:3.11",
+    
+    "features": {
+      "ghcr.io/devcontainers/features/node:1": {
+        "version": "18",  // This should match the version of Node.js in Github Actions workflows
+        "nodeGypDependencies": false
+      },
+      "ghcr.io/devcontainers/features/azure-cli:1.0.8": {},
+      "ghcr.io/azure/azure-dev/azd:latest": {}
+    },
+    
+    "customizations": {
+      "vscode": {
+        "settings": {
+          "terminal.integrated.defaultProfile.linux": "bash"
+        },
+        "extensions": [
+          "ms-python.python",
+          "esbenp.prettier-vscode",
+          "dbaeumer.vscode-eslint",
+          "ms-azuretools.azure-dev",
+          "ms-azuretools.vscode-bicep",
+          "esbenp.prettier-vscode"
+        ]
+      }
+    },
+    
+    "postCreateCommand": "npm install -g vite && pip install -r requirements.txt",
+    "forwardPorts": [3000,8000,5173],
+    "remoteUser": "vscode"
+  }
+  
